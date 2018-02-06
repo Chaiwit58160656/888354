@@ -1,0 +1,69 @@
+<!--
+    name   : Chaiwit Rattanatammakorn
+    number : 58160656
+    sec    : 2
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function SearchNumWord(){
+            
+                var text_input = document.getElementById("textarea").value;
+                var text_search = document.getElementById("search").value;
+                var i = 0;
+                var count = 0;
+                var split_string = "";
+                var lowercase_input = "";
+                var lowercase_search = "";
+
+                if(document.getElementById("Yes").checked){
+                    split_string = text_input.split(" ");
+                    while(split_string[i] != null){
+                        if(split_string[i] == text_search){
+                            count++;
+                        }
+                        i++;
+                    }
+                    document.getElementById("show_res").innerHTML = "Result for search : " + count;
+                }else if(document.getElementById("No").checked){
+                    lowercase_input = text_input.toLowerCase();
+                    lowercase_search = text_search.toLowerCase();
+                    split_string = lowercase_input.split(" ");
+                    while(split_string[i] != null){
+                        if(split_string[i] == lowercase_search){
+                            count++;
+                        }
+                        i++;
+                    }
+                    document.getElementById("show_res").innerHTML = "Result for search : " + count;
+                }
+            }		
+        </script>
+    </head>
+    <body>
+        <center>
+            <h2>EX2 - Search String Non Sensitive Case</h2>
+            <hr>
+            
+            Text input :	
+            <textarea id ="textarea"></textarea>
+            <br><br>
+        
+            Sensitive case : 
+            <input type="radio" name="sensitive" id ="Yes" checked> Yes
+            <input type="radio" name="sensitive" id ="No"> No
+            <br><br>
+        
+            search : 
+            <input type="text" id ="search">
+            <br><br>
+        
+            <button type="button" onclick="SearchNumWord()">search</button>
+            <br><br>
+        
+            <!-- Result for search :  -->
+            <div id="show_res"></div>
+        </center>
+    </body>
+</html>
