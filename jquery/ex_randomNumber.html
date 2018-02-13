@@ -1,0 +1,53 @@
+<!--
+    name   : Chaiwit Rattanatammakorn
+    number : 58160656
+    sec    : 2
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script>
+			$(function(){
+				var num1 = 0;
+				var num2 = 0; 
+				var result = 0;
+				var answer = 0;
+	
+				$("#random_num").click(function(){
+					num1 = Math.floor(Math.random() * 100) + 1;
+					num2 = Math.floor(Math.random() * 100) + 1;
+					$("#show_num").html(num1 + " + " + num2 + " = ");
+					result = num1 + num2;
+				});
+				
+				$("#send_answer").click(function(){
+					answer = $("#num_input").val();
+					if(answer == result)
+						$("#show_res").html("<br>Result : " + "<span style='color:green;'>That's correct.</span>");
+					else if(answer != result)
+						$("#show_res").html("<br>Result : " + "<span style='color:red;'>That's wrong. The answer is</span>");
+				});
+			});
+		</script>
+	</head>
+	
+	<body>
+		<center>
+			<h2>Ex - Randdom Number for Answer</h2>
+			<hr>
+			<button type="button" id="random_num" >Randdom Number</button>
+			<br><br>
+			
+			<div>
+				<span id="show_num"></span>
+				<input type="text" id="num_input">
+			</div>
+			
+			<br>
+			<button type="button" id="send_answer">Send Answer</button>
+			
+			<div id="show_res"></div>
+		</center>
+	</body>
+</html>
